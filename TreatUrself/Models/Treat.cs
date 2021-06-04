@@ -10,7 +10,7 @@ namespace TreatUrself.Models
     }
 
     public int TreatId { get; set; }
-    public int SomeProperty { get; set; }
+    public int Name { get; set; }
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<FlavorTreat> Flavors { get; }
   }
