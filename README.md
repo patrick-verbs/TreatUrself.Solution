@@ -1,10 +1,10 @@
-# Project Name
+# "Treat Urself"
 
 #### _Basic user-authorization implementation with ASP.NET Identity and MySQL_ | Patrick Lee
 
 ## Description
 
-This project was made to demonstrate basic proficiency in the usage of ASP.NET's Identity framework for user registration, authentication, and authorization while working with MySQL databases in an ASP.NET Core MVC web application.
+This project was made to demonstrate basic proficiency in the usage of ASP.NET's Identity framework for user registration, authentication, and authorization while working with MySQL databases in an ASP.NET Core MVC web application. Pierre, the fictitious baker, is back. This time, he wants a solution for visitors to view many-Treats-to-many-Flavors database relationships, as well us create, update, and delete data only if they are registered users, logged-in users.
 
 ## Setup and Use
 
@@ -18,11 +18,11 @@ This project was made to demonstrate basic proficiency in the usage of ASP.NET's
 
 ### Installation
 
-1. Clone the repository: `$ git clone {clone link}`
-2. Navigate to the `{Template.Solution}` directory on your computer
+1. Clone the repository: `$ git clone https://github.com/patrick-verbs/TreatUrself.Solution`
+2. Navigate to the `TreatUrself.Solution` directory on your computer
 3. Open with your preferred text editor to view the code base
 4. To setup a SQL database using MySQL:
-   - Create an `appsettings.json` file in the `{WeekFiveTemplate}` directory
+   - Create an `appsettings.json` file in the `TreatUrself` directory
    - Copy the text box below and paste into the `appsettings.json` file, replacing `<password>` with your MySQL password:
    ```
      {
@@ -33,9 +33,9 @@ This project was made to demonstrate basic proficiency in the usage of ASP.NET's
    ```
    - Open your terminal and run the command: `mysql -uroot -p<mysql_password>` (replace `<mysql_password>` with your MySQL password) to launch MySQL server
 5. To serve the local web app:
-   - Navigate to `{Template.Solution/WeekFiveTemplate}` in your command line
+   - Navigate to `TreatUrself.Solution/TreatUrself` in your command line
    - Run the commands:
-     - `dotnet restore` to restore the dependencies that are listed in `{Template.csproj}`
+     - `dotnet restore` to restore the dependencies that are listed in `TreatUrself.csproj`
      - `dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0`
      - `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2`
      - `dotnet add package Microsoft.EntityFrameworkCore.Proxies -v 5.0.0`
@@ -52,7 +52,7 @@ _No known bugs_ :bug:
 
 ## Technologies Used
 
-- This terrific [.NET Core MVC + MySQL template](https://github.com/TorchAblaze/WeekFiveTemplate.Solution) by __[TorchAblaze](https://github.com/TorchAblaze)__
+- This terrific [.NET Core MVC + MySQL template](https://github.com/TorchAblaze/TreatUrself.Solution) by __[TorchAblaze](https://github.com/TorchAblaze)__
 - MySQL Server 8.0.19 and MySQL Workbench 8.0.19
 - C#
 - .NET 5 SDK
@@ -92,4 +92,4 @@ SOFTWARE.
 </pre>
 </details>
 
-Copyright © 2021 **_Patrick Lee_**
+Copyright © 2021 Patrick Lee
