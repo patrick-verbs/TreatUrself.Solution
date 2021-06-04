@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TreatUrself.Models;
-// using TreatUrself.Models.AppSettings;
 using Microsoft.AspNetCore.Identity;
 
 namespace TreatUrself
