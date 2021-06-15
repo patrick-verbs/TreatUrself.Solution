@@ -2,7 +2,47 @@
   Layout = "_Layout";
 }
 
+@using TreatUrself.Models
+
 <h1>Welcome to Treat Urself!</h1>
+
+<div class="container"><div class="row">
+  <div class="col-md-6">
+    <h3>Flavors</h3>
+    @if (Model["Flavors"].Count == 0)
+    {
+      <h4>Please add some flavors&mdash;we have no taste!</h4>
+    }
+    else
+    {
+      <ul>
+        @foreach (Flavor flavor in Model["Flavors"])
+        {
+          <li>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+        }
+      </ul>
+    }
+  </div>
+  <div class="col-md-6">
+    <h3>Treats</h3>
+    @if (Model["Treats"].Count == 0)
+    {
+      <h4>Please add some treats&mdash;or we'll be forced to sell our flavors!</h4>
+    }
+    else
+    {
+      <ul>
+        @foreach (Treat treat in Model["Treats"])
+        {
+          <li>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId })</li>
+        }
+      </ul>
+    }
+  </div>
+</div></div>
+
+<br><br>
+
 <p>@Html.ActionLink("Sign into an account", "Index", "Account")</p>
 <p>@Html.ActionLink("See all treats", "Index", "Treats")</p> 
 <p>@Html.ActionLink("See all flavors", "Index", "Flavors")</p>
