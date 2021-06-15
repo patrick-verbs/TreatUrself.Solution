@@ -57,7 +57,7 @@ namespace TreatUrself.Controllers
     {
       var thisFlavor = _db.Flavors
         .Include(flavor => flavor.JoinTreats)
-        .ThenInclude(join => join.Flavor)
+        .ThenInclude(join => join.Treat)
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       
       return View(thisFlavor);
@@ -66,7 +66,7 @@ namespace TreatUrself.Controllers
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
       return View(thisFlavor);
     }
 
@@ -97,15 +97,27 @@ namespace TreatUrself.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddFlavor(int id)
+    public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
       return View(thisFlavor);
     }
 
     [HttpPost]
-    public ActionResult DeleteFlavor(int joinId)
+    public ActionResult AddTreat(Flavor flavor, int TreatId)
+    {
+      if (TreatId != 0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+      }
+      _db.SaveChanges();
+
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteTreat(int joinId)
     {
       var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
       _db.FlavorTreat.Remove(joinEntry);

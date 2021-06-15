@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TreatUrself.Models.Flavor
+
+<h1>Delete Flavor Data</h1>
+
+<h3>Are you sure you want to permanently remove the information for this flavor?</h3>
+
+<p><strong>@Html.DisplayNameFor(model => model.Name):</strong> @Html.DisplayFor(model => model.Name)</p>
+
+<br><br>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="delete">
+}
+
+<br><br>
+
+<p>@Html.ActionLink("View All Flavors", "Index", "Flavors", null, new {@class="button"})</p>

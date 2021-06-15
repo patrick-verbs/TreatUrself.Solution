@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TreatUrself.Models.Flavor
+
+<h1>Add a Treat</h1>
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+@if (Enumerable.Count(ViewBag.TreatId) != 0)
+{
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Treat")
+    <br>
+    @Html.DropDownList("TreatId")
+    <br>
+    <br>
+    <input type="submit" value="Save">
+  }
+}
+else
+{
+  <h4>No treats have this flavor&mdash;what a shame!</h4>
+  <p>@Html.ActionLink("Add New Treat", "Create", "Treats", null, new {@class="button"})</p>
+}
+
+<br><br>
+
+<p>@Html.ActionLink("View All Flavors", "Index", "Flavors", null, new {@class="button"})</p>

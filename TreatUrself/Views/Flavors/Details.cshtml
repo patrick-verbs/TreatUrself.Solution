@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TreatUrself.Models.Flavor
+
+<h1>Flavor Details</h1>
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.JoinTreats.Count == 0)
+{
+  <h3>No treats have this flavor&mdash;what a shame!</h3>
+}
+else
+{
+  <h3>Treats @Html.DisplayFor(model => model.Name):</h3>
+  <ul>
+    @foreach(var treat in Model.JoinTreats)
+    {
+      <li>@treat.Treat.Name</li>
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @treat.FlavorTreatId)
+        <input type="submit" value="Remove Treat" class="delete-object"/>
+      }
+    }
+  </ul>
+}
+
+<br><br>
+
+<p>@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId}, new {@class="button"})</p>
+<p>@Html.ActionLink("Edit Flavor Data", "Edit", new { id = Model.FlavorId}, new {@class="button"})</p>
+<p>@Html.ActionLink("Remove Flavor", "Delete", new { id = Model.FlavorId}, new {@class="button"})</p>
+<p>@Html.ActionLink("View All Flavors", "Index", "Flavor", null, new {@class="button"})</p>
