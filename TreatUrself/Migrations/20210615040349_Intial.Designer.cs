@@ -9,8 +9,8 @@ using TreatUrself.Models;
 namespace TreatUrself.Migrations
 {
     [DbContext(typeof(TreatUrselfContext))]
-    [Migration("20210604204747_Initial")]
-    partial class Initial
+    [Migration("20210615040349_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -252,8 +252,8 @@ namespace TreatUrself.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
