@@ -11,7 +11,7 @@ using TreatUrself.Models;
 
 namespace TreatUrself.Controllers
 {
-  // [Authorize]
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly TreatUrselfContext _db;
