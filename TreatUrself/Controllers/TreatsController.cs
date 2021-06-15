@@ -81,5 +81,12 @@ namespace TreatUrself.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult AddFlavor(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
+      return View(thisTreat);
+    }
   }
 }
